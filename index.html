@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris Ultra</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div class="main-menu" id="mainMenu">
+      <h1 class="game-title">TETRIS ULTRA</h1>
+      <p class="game-subtitle">El clásico juego de bloques reimaginado</p>
+      <button class="start-btn" onclick="startGame()">Comenzar Partida</button>
+      <div class="menu-controls">
+        <strong>CONTROLES DEL JUEGO:</strong><br />
+        ← → Mover piezas<br />
+        ↓ Acelerar caída<br />
+        ↑ Rotar pieza<br />
+        ESPACIO Caída instantánea<br />
+        P Pausar juego
+      </div>
+    </div>
+
+    <!-- JUEGO -->
+    <div class="game-container hidden" id="gameContainer">
+      <button class="pause-btn" onclick="togglePause()">PAUSA</button>
+
+      <div class="game-board">
+        <canvas id="gameCanvas" width="300" height="600"></canvas>
+      </div>
+
+      <div class="game-info">
+        <div class="info-item">
+          <div class="info-label">PUNTUACIÓN</div>
+          <div class="info-value" id="score">0</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">LÍNEAS</div>
+          <div class="info-value" id="lines">0</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">NIVEL</div>
+          <div class="info-value" id="level">1</div>
+        </div>
+
+        <div class="next-piece">
+          <div class="info-label">SIGUIENTE</div>
+          <canvas id="nextCanvas" width="120" height="80"></canvas>
+        </div>
+
+        <div class="controls">
+          <strong>CONTROLES:</strong><br />
+          ← → Mover<br />
+          ↓ Bajar rápido<br />
+          ↑ Rotar<br />
+          ESPACIO Caída instantánea<br />
+          P Pausar
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div class="game-over hidden" id="gameOverScreen">
+      <div class="game-over-content">
+        <h2>GAME OVER</h2>
+        <p style="font-size: 18px; margin: 15px 0; color: #ffaa00">
+          Puntuación final: <span id="finalScore">0</span>
+        </p>
+        <button class="restart-btn" onclick="restartGame()">
+          JUGAR DE NUEVO
+        </button>
+        <button
+          class="restart-btn"
+          onclick="backToMenu()"
+          style="
+            background: linear-gradient(45deg, #666666, #999999);
+            margin-left: 10px;
+          "
+        >
+          MENÚ PRINCIPAL
+        </button>
+      </div>
+    </div>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>
